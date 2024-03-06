@@ -1,6 +1,6 @@
 export default function Card() {
    return (
-<div className="bg-primary-yellow w-[70%] mx-auto rounded-lg "> 
+<div className="bg-primary-yellow w-[70%] mx-auto rounded-lg mb-[1rem] lg:basis-[24%]"> 
 <div className="w-full h-[15rem] bg-[url('/image/IslaEjemplo.jpg')] bg-no-repeat bg-center bg-cover rounded-lg"> 
 
 </div >

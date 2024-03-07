@@ -21,6 +21,12 @@ export default function CardList() {
     fetchTrips();
   }, [currentPage]);
 
+  const handlePagination = () => {
+    // setCurrentPage(newPage);
+    // console.log({ currentPage });
+    console.log("hola");
+  };
+
   return (
     <>
       <section className="lg:flex lg:flex-wrap lg:gap-[1rem] lg:max-w-[80%] lg:mx-auto lg:mt-[2rem]">
@@ -28,8 +34,11 @@ export default function CardList() {
           <Card key={trip.id} trip={trip} />
         ))}
       </section>
-      <section>
-        <Pagination />
+      <section className="lg:flex lg:max-w-[80%] lg:mx-auto items-center justify-center lg:my-[2rem]">
+        <Pagination
+          handlePageChange={handlePagination}
+          currentPage={currentPage}
+        />
       </section>
     </>
   );

@@ -1,18 +1,16 @@
 "use client";
-import { useEffect, useState } from 'react';
-import { getTripsByPage } from '../service/service.jsx';
-
+import { useEffect, useState } from "react";
+import { getTripsByPage } from "@/services/";
+import Card from "@/components/Card.jsx";
 
 export default function CardList() {
   const [trips, setTrips] = useState([]);
-  const [CurrentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const fetchTrips = async () => {
-   
-    try {
-  
-        const tripsData = await getTripsByPage(CurrentPage);
+      try {
+        const tripsData = await getTripsByPage(currentPage);
         setTrips(tripsData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -20,11 +18,10 @@ export default function CardList() {
     };
 
     fetchTrips();
- 
-  }, [CurrentPage]);
-  console.log(trips);
+  }, [currentPage]);
+
   return (
-    <section className="lg:flex lg:flex-wrap lg:gap-[0.8rem] lg:w-[90%] lg:mx-auto">
+    <section className="lg:flex lg:flex-wrap lg:gap-[1rem] lg:max-w-[80%] lg:mx-auto">
       {trips.map((trip) => (
         <Card key={trip.id} trip={trip} />
       ))}

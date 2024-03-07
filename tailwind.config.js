@@ -8,16 +8,18 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        "inner-top": "inset 0 3px 3px -3px rgba(0, 0, 0, 0.5)",
-        "sgreen": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
-      }
+        "inner-top": "inset 1px 3px 4px 1px rgb(37 29 29 / 18%)",
+        "s-green": "2px 1px 7px 2px rgb(67 125 110 / 32%)",
+        "sh-transparent": "2px 1px 7px 2px rgb(67 125 110 / 0%)",
+      },
     },
-    colors:{
-      "primary-yellow":"#FBFDCE",
-      "secondary-green":"#00DFA2",
-      "tertiary-red":"#FF0060",
-      "quaternary-blue":"#0079FF",
-    }
+    colors: {
+      "white-transparent": "#f5f5dc00",
+      "primary-yellow": "#FBFDCE",
+      "secondary-green": "#00DFA2",
+      "tertiary-red": "#FF0060",
+      "quaternary-blue": "#0079FF",
+    },
   },
   plugins: [],
 };

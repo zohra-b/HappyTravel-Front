@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { getTripsByPage } from "@/services/";
 import Card from "@/components/Card.jsx";
+import Pagination from "@/components/Pagination";
 
 export default function CardList() {
   const [trips, setTrips] = useState([]);
@@ -21,10 +22,15 @@ export default function CardList() {
   }, [currentPage]);
 
   return (
-    <section className="lg:flex lg:flex-wrap lg:gap-[1rem] lg:max-w-[80%] lg:mx-auto">
-      {trips.map((trip) => (
-        <Card key={trip.id} trip={trip} />
-      ))}
-    </section>
+    <>
+      <section className="lg:flex lg:flex-wrap lg:gap-[1rem] lg:max-w-[80%] lg:mx-auto lg:mt-[2rem]">
+        {trips.map((trip) => (
+          <Card key={trip.id} trip={trip} />
+        ))}
+      </section>
+      <section>
+        <Pagination />
+      </section>
+    </>
   );
 }

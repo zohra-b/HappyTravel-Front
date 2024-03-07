@@ -21,10 +21,8 @@ export default function CardList() {
     fetchTrips();
   }, [currentPage]);
 
-  const handlePagination = () => {
-    // setCurrentPage(newPage);
-    // console.log({ currentPage });
-    console.log("hola");
+  const handlePagination = (newPage) => {
+    setCurrentPage(newPage);
   };
 
   return (
@@ -36,7 +34,7 @@ export default function CardList() {
       </section>
       <section className="lg:flex lg:max-w-[80%] lg:mx-auto items-center justify-center lg:my-[2rem]">
         <Pagination
-          handlePageChange={handlePagination}
+          handlePagination={handlePagination}
           currentPage={currentPage}
         />
       </section>

@@ -8,7 +8,7 @@ export default function Search() {
         type="search"
         name="search"
         placeholder="Search..."
-        className="bg-primary-yellow rounded-2xl shadow-inner-top px-[1rem] placeholder:text-quaternary-blue py-[0.3rem] w-full text-[0.9rem]"
+        className="bg-primary-yellow rounded-2xl shadow-inner-top px-[1rem] placeholder:text-quaternary-blue py-[0.3rem] w-full text-[0.9rem] focus:outline-none"
       ></input>
       <Image
         src="/image/Glass-icon.svg"

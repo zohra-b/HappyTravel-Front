@@ -14,4 +14,13 @@ export const getAllTrips = async () => {
       console.log('Error: ', error)
     }
 }
+export const getTripsByPage = async (CurrentPage) => { 
+    try{ 
+        const response = await axios.get(`http://127.0.0.1:8000/api/page?page=${CurrentPage}`);  
+        return response.data
 
+    }
+    catch (error) {
+      console.log('Error: ', error)
+    }
+}

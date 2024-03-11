@@ -7,7 +7,7 @@
    3. [Tecnologías](#tecnologías)
    4. [Herramientas](#herramientas)
    5. [Instalación](#instalación)
-   6. [Nuestro equipo](#nuestro-equipo)
+   6. [Nuestro equipo](#equipo-hacker-cats)
 
 
 ## 🗃 Información General

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import CardList from '../../components/Cardlist.jsx';
+import CardList from '../../components/Cardlist.jsx'; 
 
 jest.mock('../../services/index.jsx', () => ({
   getTripsByPage: jest.fn().mockResolvedValue([{ id: 1, title: 'Trip 1', location: 'Location 1' }])

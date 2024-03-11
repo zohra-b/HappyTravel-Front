@@ -9,14 +9,15 @@ export default function FormRegister() {
       <label htmlFor="name" className="text-quaternary-blue text-xl font-bold pb-1 pt-6">
         Nombre
       </label>
-      <InputForm/>
+      <InputForm type="text" placeholder="Escribe tu nombre..."/>
       <label htmlFor="email" className="text-quaternary-blue text-xl font-bold pb-1 pt-6">
         Email
       </label>
+      <InputForm ype="text" placeholder="Escribe tu nombre..."/>
       <label htmlFor="password" className="text-quaternary-blue text-xl font-bold pb-1 pt-6">
         Contraseña
       </label>
-
+      <InputForm type="email" placeholder="Escribe tu correo electrónico..."/>
       <div className="flex gap-4 justify-center pt-8">
       </div>
       <br></br>

@@ -1,5 +1,5 @@
 #  Happy Travel by Hacker Cats
-<div align="center">
+
 
 ## 📓 Tabla de contenidos 
    1. [Información General](#información-general)
@@ -16,48 +16,44 @@ La compañía HappyTravel nos ha contratado para desarrollar una plataforma web 
 ## Mockups
 
 #### Atomic Design
-<img src="./public/atomic_design.jpg" width="400px">
+<img src="./public/atomic_design.jpg" width="900px">
 
-#### Versión Desktop
 
-## Home
+## Home - desktop
    <img src="./public/home_figma.jpg" width=900px>
 
-## Destino
+## Destino - desktop
    <img src="./public/show_logged.jpg" width=900px>
 
 
 ## 🛠 Tecnologías
 <div>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> HTML5
+<img alt="Static Badge" src="https://img.shields.io/badge/HTML-5-blue">
 <br>
-<img src="https://profilinator.rishav.dev/skills-assets/css3-original-wordmark.svg" alt="CSS3" height="50" />  CSS3
+<img alt="Static Badge" src="https://img.shields.io/badge/CSS-3-blue">
 <br>
-<img src="" alt="Tailwind" width="40" height="40"/> Tailwind
+<img alt="Static Badge" src="https://img.shields.io/badge/Tailwind-v3.0-blue">
 <br>
-<img src="https://profilinator.rishav.dev/skills-assets/mysql-original-wordmark.svg" alt="React" width="40" height="40"/> React
+<img alt="Static Badge" src="https://img.shields.io/badge/Next-14.1.0-blue">
 <br>
-<img src="" alt="Axios" width="40" height="40"/> Axios
+<img alt="Static Badge" src="https://img.shields.io/badge/React-%5E18-blue">
+<br>
+<img alt="Static Badge" src="https://img.shields.io/badge/Axios-%5E1.6.7-blue">
 
 </div>
 
-<div>
 
-Versiones : 
-Next: "14.1.0",
-React: "^18",
-
-
-
-</div>
 
 ## 🛠 Herramientas
 <div>
-<img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/>
-<img src="https://w7.pngwing.com/pngs/512/824/png-transparent-visual-studio-code-hd-logo-thumbnail.png" alt="vscode" width="40" heigth="40"/>
-<img src="https://w7.pngwing.com/pngs/115/721/png-transparent-trello-social-icons-icon.png" alt="trello" width="40" heigth="40"/>
-<img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
-<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="github" width="40" heigth="40"/>
+<img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="logo de figma" width="40" height="40"/> Figma 
+<br>
+<img src="https://w7.pngwing.com/pngs/512/824/png-transparent-visual-studio-code-hd-logo-thumbnail.png" alt="logo de visual studio code" width="40" heigth="40"/> Visual Studio Code
+<br>
+<img src="https://w7.pngwing.com/pngs/115/721/png-transparent-trello-social-icons-icon.png" alt="logo de trello" width="40" heigth="40"/> Trello
+<br>
+<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="logo de github" width="40" heigth="40"/> GitHub
+<br>
 
 
 ## Instalación

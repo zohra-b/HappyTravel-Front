@@ -48,7 +48,7 @@ La compañía HappyTravel nos ha contratado para desarrollar una plataforma web 
 <div>
 <img alt="Static Badge" src="https://img.shields.io/badge/Figma-green"> 
 <br>
-<img alt="Static Badge" src="https://img.shields.io/badge/Visual-Studio-Code-green">
+<img alt="Static Badge" src="https://img.shields.io/badge/Visual_Studio_Code-green">
 <br>
 <img alt="Static Badge" src="https://img.shields.io/badge/Trello-green">
 <br>

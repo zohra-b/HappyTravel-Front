@@ -1,17 +1,13 @@
 #  Happy Travel by Hacker Cats
 <div align="center">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRau13DSahkZKYSvDdVdIHsY5ILYaXyD7o6E5Qm9169Q&s" width="100px">
-   <img src="./laravel/public/assets/Logo.svg" width="180px">
-</div>
-
-|  
-| :---: | :---: | :---: | :---: |
 
 ## 📓 Tabla de contenidos 
    1. [Información General](#información-general)
    2. [Mockups](#mockups)
    3. [Tecnologías](#tecnologías)
    4. [Herramientas](#herramientas)
+   5. [Instalación](#instalación)
+   6. [Nuestro equipo](#nuestro-equipo)
 
 
 ## 🗃 Información General
@@ -20,33 +16,29 @@ La compañía HappyTravel nos ha contratado para desarrollar una plataforma web 
 ## Mockups
 
 #### Atomic Design
-<img src="./laravel/public/assets/atomic-desing.png" width="400px">
+<img src="./public/atomic_design.jpg" width="400px">
 
 #### Versión Desktop
-<img src="./laravel/public/assets/desktop.png" width=900px>
 
-## Vistas de la aplicación
+## Home
+   <img src="./public/home_figma.jpg" width=900px>
 
-#### Index
-   <img>
-
-#### Descripción del destino
-   <img>
-
-#### Editar destino
-   <img>
-
-#### Crear destino
-   <img>
+## Destino
+   <img src="./public/show_logged.jpg" width=900px>
 
 
 ## 🛠 Tecnologías
 <div>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/>
-<img src="https://profilinator.rishav.dev/skills-assets/css3-original-wordmark.svg" alt="CSS3" height="50" />  
-<img src="https://raw.githubusercontent.com/jmnote/z-icons/master/svg/php.svg" alt="php" width="40" height="40"/>
-<img src="https://profilinator.rishav.dev/skills-assets/mysql-original-wordmark.svg" alt="React" width="40" height="40"/>
-<img src="https://profilinator.rishav.dev/skills-assets/laravel-plain-wordmark.svg" alt="Laravel" width="40" height="40"/>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> HTML5
+<br>
+<img src="https://profilinator.rishav.dev/skills-assets/css3-original-wordmark.svg" alt="CSS3" height="50" />  CSS3
+<br>
+<img src="" alt="Tailwind" width="40" height="40"/> Tailwind
+<br>
+<img src="https://profilinator.rishav.dev/skills-assets/mysql-original-wordmark.svg" alt="React" width="40" height="40"/> React
+<br>
+<img src="" alt="Axios" width="40" height="40"/> Axios
+
 </div>
 
 <div>
@@ -54,7 +46,7 @@ La compañía HappyTravel nos ha contratado para desarrollar una plataforma web 
 Versiones : 
 Next: "14.1.0",
 React: "^18",
-PHP 8.2.12,
+
 
 
 </div>
@@ -66,7 +58,7 @@ PHP 8.2.12,
 <img src="https://w7.pngwing.com/pngs/115/721/png-transparent-trello-social-icons-icon.png" alt="trello" width="40" heigth="40"/>
 <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
 <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="github" width="40" heigth="40"/>
-<img src="https://profilinator.rishav.dev/skills-assets/xampp.png" alt="react" width="40" height="40"/> </div>
+
 
 ## Instalación
 

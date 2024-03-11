@@ -3,9 +3,9 @@ import React from 'react'
 
 export default function page() {
   return (
-    <div className='flex align-center justify-center'>
+    <main className='flex items-center justify-center h-[70vh]'>
         <FormRegister/>
-    </div>
+    </main>
     
   )
 }

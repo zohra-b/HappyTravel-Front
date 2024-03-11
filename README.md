@@ -46,13 +46,13 @@ La compañía HappyTravel nos ha contratado para desarrollar una plataforma web 
 
 ## 🛠 Herramientas
 <div>
-<img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="logo de figma" width="40" height="40"/> Figma 
+<img alt="Static Badge" src="https://img.shields.io/badge/Figma-green"> 
 <br>
-<img src="https://w7.pngwing.com/pngs/512/824/png-transparent-visual-studio-code-hd-logo-thumbnail.png" alt="logo de visual studio code" width="40" heigth="40"/> Visual Studio Code
+<img alt="Static Badge" src="https://img.shields.io/badge/Visual-Studio-Code-green">
 <br>
-<img src="https://w7.pngwing.com/pngs/115/721/png-transparent-trello-social-icons-icon.png" alt="logo de trello" width="40" heigth="40"/> Trello
+<img alt="Static Badge" src="https://img.shields.io/badge/Trello-green">
 <br>
-<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="logo de github" width="40" heigth="40"/> GitHub
+<img alt="Static Badge" src="https://img.shields.io/badge/GitHub-green">
 <br>
 
 

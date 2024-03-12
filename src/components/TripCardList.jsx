@@ -24,8 +24,10 @@ export default function CardList() {
       }
     };
 
-    fetchTrips();
-  }, [currentPage]);
+    if (!searchText) {
+      fetchTrips();
+    }
+  }, [currentPage, searchText]);
 
   // BUSQUEDA DE TRIPS
   useEffect(() => {
@@ -35,14 +37,9 @@ export default function CardList() {
         setTrips(searchTripsData ?? []);
       } catch (error) {
         console.error("error:", error);
-        if (error.response.status == 404) setSearchNotFound(true);
+        if (error.response.status === 404) setTrips([]);
       }
     };
-
-    if (!searchText) {
-      setSearchNotFound(false);
-      setCurrentPage(1);
-    }
 
     if (searchText) fetchSearchTrips();
   }, [searchText]);
@@ -51,7 +48,17 @@ export default function CardList() {
     setCurrentPage(newPage);
   };
 
-  if (searchNotFound) return <h1>No se encontraron resultados! :( </h1>;
+  if (trips.length < 1)
+    return (
+      <section className="lg:flex lg:justify-center lg:gap-[1rem]  lg:max-w-[80%] lg:mx-auto lg:mt-[4rem]">
+        <h2 className="text-[1.5rem] font-bold ">
+          No se encontraron resultados para tu busqueda:{" "}
+          <span className="text-quaternary-blue text-[1.8rem]">
+            "{searchText}"
+          </span>
+        </h2>
+      </section>
+    );
 
   return (
     <>

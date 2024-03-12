@@ -1,5 +1,5 @@
 "use client";
-import CardList from "@/components/CardList";
+import CardList from "@/components/TripCardList";
 export default function Home() {
   return (
     <main>

@@ -10,8 +10,7 @@ export default function Search() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setValueInput(e.target.value);
-    router.push(`/?search=${valueInput}`);
-    // setValueInput("");
+    router.push(`/?search=${e.target.value}`);
   };
   return (
     <form

@@ -4,27 +4,16 @@ axios.defaults.headers.post["Accept"] = "application/json";
 
 const API_URL = process.env.API_URL;
 export const getAllTrips = async () => {
-  try {
-    const response = await axios.get(API_URL);
-    return response.data;
-  } catch (error) {
-    console.log("Error: ", error);
-  }
+  const response = await axios.get(API_URL);
+  return response.data;
 };
+
 export const getTripsByPage = async (currentPage) => {
-  try {
-    const response = await axios.get(`${API_URL}/page?page=${currentPage}`);
-    return response.data.data;
-  } catch (error) {
-    console.log("Error: ", error);
-  }
+  const response = await axios.get(`${API_URL}/page?page=${currentPage}`);
+  return response.data.data;
 };
 
 export const getSearchTrips = async (searchText) => {
-  try {
-    const response = await axios.get(`${API_URL}/search/?search=${searchText}`);
-    return response.data;
-  } catch (error) {
-    console.log("Error: ", error);
-  }
+  const response = await axios.get(`${API_URL}/search/?search=${searchText}`);
+  return response.data;
 };

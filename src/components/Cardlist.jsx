@@ -11,7 +11,9 @@ export default function CardList() {
 
   const [trips, setTrips] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchNotFound, setSearchNotFound] = useState(false);
 
+  // OBTENER TRIPS CON PAGINACION
   useEffect(() => {
     const fetchTrips = async () => {
       try {
@@ -25,23 +27,31 @@ export default function CardList() {
     fetchTrips();
   }, [currentPage]);
 
+  // BUSQUEDA DE TRIPS
   useEffect(() => {
     const fetchSearchTrips = async () => {
       try {
         const searchTripsData = await getSearchTrips(searchText);
-
-        console.log({ searchTripsData });
         setTrips(searchTripsData ?? []);
       } catch (error) {
         console.error("error:", error);
+        if (error.response.status == 404) setSearchNotFound(true);
       }
     };
+
+    if (!searchText) {
+      setSearchNotFound(false);
+      setCurrentPage(1);
+    }
+
     if (searchText) fetchSearchTrips();
   }, [searchText]);
 
   const handlePagination = (newPage) => {
     setCurrentPage(newPage);
   };
+
+  if (searchNotFound) return <h1>No se encontraron resultados! :( </h1>;
 
   return (
     <>

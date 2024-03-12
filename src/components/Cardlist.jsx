@@ -1,10 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
-import { getTripsByPage } from "@/services/";
+import { getTripsByPage, getSearchTrips } from "@/services/";
 import Card from "@/components/Card.jsx";
+import { useSearchParams } from "next/navigation";
 import Pagination from "@/components/Pagination";
 
 export default function CardList() {
+  const searchParams = useSearchParams();
+  const searchText = searchParams.get("search");
+
   const [trips, setTrips] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -20,6 +24,20 @@ export default function CardList() {
 
     fetchTrips();
   }, [currentPage]);
+
+  useEffect(() => {
+    const fetchSearchTrips = async () => {
+      try {
+        const searchTripsData = await getSearchTrips(searchText);
+
+        console.log({ searchTripsData });
+        setTrips(searchTripsData ?? []);
+      } catch (error) {
+        console.error("error:", error);
+      }
+    };
+    if (searchText) fetchSearchTrips();
+  }, [searchText]);
 
   const handlePagination = (newPage) => {
     setCurrentPage(newPage);

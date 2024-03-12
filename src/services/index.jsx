@@ -19,3 +19,12 @@ export const getTripsByPage = async (currentPage) => {
     console.log("Error: ", error);
   }
 };
+
+export const getSearchTrips = async (searchText) => {
+  try {
+    const response = await axios.get(`${API_URL}/search/?search=${searchText}`);
+    return response.data;
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};

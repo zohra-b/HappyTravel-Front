@@ -1,6 +1,35 @@
-import React from 'react'
-import InputForm from './InputForm'
-import Btn from './Btn'
+import React, { useState } from 'react';
+import InputForm from './InputForm';
+import Btn from './Btn';
+import { registerUser } from './tuArchivoDondeSeEncuentraElServicioRegisterUser';
+
+export default function FormRegister() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await registerUser(formData);
+      console.log('Usuario registrado exitosamente: ', response);
+   
+    } catch (error) {
+      console.error('Error al registrar usuario: ', error);
+
+    }
+  };
+}
 
 export default function FormRegister() {
   return (
@@ -10,21 +39,22 @@ export default function FormRegister() {
       <label htmlFor="name" className="text-quaternary-blue text-xl font-bold pb-1 pt-6">
         Nombre
       </label>
-      <InputForm type="text" placeholder="Escribe tu nombre..."/>
+      <InputForm type="text" placeholder="Escribe tu nombre..." name="name" value={formData.name}  onSubmit={handleSubmit}/>
       <label htmlFor="email" className="text-quaternary-blue text-xl font-bold pb-1 pt-6">
         Email
       </label>
-      <InputForm ype="text" placeholder="Escribe tu nombre..."/>
+      <InputForm type="email" placeholder="Escribe tu email..." name="email" value={formData.email} onSubmit={handleSubmit}/>
       <label htmlFor="password" className="text-quaternary-blue text-xl font-bold pb-1 pt-6">
         Contraseña
       </label>
-      <InputForm type="email" placeholder="Escribe tu correo electrónico..."/>
+      <InputForm type="password" placeholder="Escribe tu correo electrónico..." value={formData.password} name="password" onSubmit={handleSubmit}/>
       <div className="flex gap-4 justify-center pt-8">
       </div>
       <div className='flex gap-4 my-3'>
         <Btn
             text="Aceptar"
             color="bg-secondary-green"
+            type="submit"
         />
         <Btn
             text="Cancelar"

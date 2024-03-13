@@ -31,8 +31,7 @@ export const registerUser = async (formData) => {
 export const getTripsById = async (id) => {
   const response = await axios.get(`${API_URL}/trip/${id}`, {
     headers: {
-      Authorization:
-        "Bearer " + "2|0RtENQqdYvwqJU1lDUghYL32LNS1i3iFaIJ3PxP3f50c4e38",
+      Authorization: "Bearer " + localStorage.getItem("token"),
     },
   });
   return response.data;
@@ -40,6 +39,8 @@ export const getTripsById = async (id) => {
 export const loginUser = async (loginInput) => {
   try {
     const response = await axios.post(`${API_URL}/login/`, loginInput);
+    console.log(response.data);
+    return response.data;
   } catch (error) {
     console.error("Error al iniciar sesión:", error);
     throw error;

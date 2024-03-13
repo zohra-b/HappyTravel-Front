@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation"; // Importa useRouter desde Next.js
 export default function Login() {
   const router = useRouter(); // Obtiene el objeto router
 
-  const [loginInput, setLogin] = useState({
+  const [loginInput, setLoginInput] = useState({
     email: "",
     password: "",
     error_list: [],
@@ -17,7 +17,7 @@ export default function Login() {
 
   const handleInput = (e) => {
     e.persist();
-    setLogin({
+    setLoginInput({
       ...loginInput,
       [e.target.name]: e.target.value,
     });
@@ -28,9 +28,8 @@ export default function Login() {
 
     try {
       const response = await loginUser(loginInput);
-      console.log("usuario correcto", response);
+      localStorage.setItem("token", response.access_token);
       alert("Usuario OK");
-
       router.push("/");
     } catch (error) {
       console.error("Error ", error);

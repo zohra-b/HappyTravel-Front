@@ -27,3 +27,12 @@ export const registerUser = async (formData) => {
     throw error;
   }
 };
+
+export const loginUser = async (loginInput) => {
+  try {
+    const response = await axios.post(`${API_URL}/login/`, loginInput);
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error);
+    throw error; 
+  }
+};

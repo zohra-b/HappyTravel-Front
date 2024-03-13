@@ -27,3 +27,13 @@ export const registerUser = async (formData) => {
     throw error;
   }
 };
+
+export const getTripsById = async (id) => {
+  const response = await axios.get(`${API_URL}/trip/${id}`, {
+    headers: {
+      Authorization:
+        "Bearer " + "2|0RtENQqdYvwqJU1lDUghYL32LNS1i3iFaIJ3PxP3f50c4e38",
+    },
+  });
+  return response.data;
+};

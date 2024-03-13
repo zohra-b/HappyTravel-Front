@@ -1,10 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
-import { getTripsByPage, getSearchTrips } from "@/services/";
+import { getTripsByPage, getSearchTrips, getAllTrips } from "@/services/";
 import Card from "@/components/Card.jsx";
 import { useSearchParams } from "next/navigation";
 import Pagination from "@/components/Pagination";
+import useBreakpoint from "use-breakpoint";
 import SkeletonCardList from "@/components/placeholder/SkeletonCardList";
+
+const BREAKPOINTS = { mobile: 0, desktop: 1000 };
 
 export default function CardList() {
   const searchParams = useSearchParams();
@@ -12,24 +15,40 @@ export default function CardList() {
   const [trips, setTrips] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [totalPages, setTotalPages] = useState(0);
+  const { breakpoint } = useBreakpoint(BREAKPOINTS);
+  console.log({ totalPages });
   // OBTENER TRIPS CON PAGINACION
   useEffect(() => {
     const fetchTrips = async () => {
       try {
         const tripsData = await getTripsByPage(currentPage);
-        setTrips(tripsData);
+        setTrips(tripsData.data);
+        setTotalPages(Math.ceil(tripsData.total / 8));
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
+    if (breakpoint === "desktop") fetchTrips();
     if (!searchText || searchText === "") {
       fetchTrips();
     }
-  }, [currentPage, searchText]);
+  }, [currentPage, searchText, breakpoint]);
+  //TODOS LOS VIAJES
+  useEffect(() => {
+    const fetchTripsAll = async () => {
+      try {
+        const tripsData = await getAllTrips();
+        setTrips(tripsData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
+    if (breakpoint === "mobile") fetchTripsAll();
+  }, [breakpoint]);
   // BUSQUEDA DE TRIPS
   useEffect(() => {
     const fetchSearchTrips = async () => {
@@ -72,10 +91,13 @@ export default function CardList() {
       </section>
 
       <section className="lg:flex lg:max-w-[80%] lg:mx-auto items-center justify-center lg:my-[2rem]">
-        <Pagination
-          handlePagination={handlePagination}
-          currentPage={currentPage}
-        />
+        {breakpoint === "desktop" && (
+          <Pagination
+            handlePagination={handlePagination}
+            currentPage={currentPage}
+            totalPages={totalPages}
+          />
+        )}
       </section>
     </>
   );

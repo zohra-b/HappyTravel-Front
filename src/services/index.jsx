@@ -19,3 +19,13 @@ export const getTripsByPage = async (currentPage) => {
     console.log("Error: ", error);
   }
 };
+export const loginUser = async () => {
+  try {
+    const response = await axios.post(`${API_URL}/login`); // Se debe pasar el objeto userData en la solicitud POST si contiene datos necesarios para el inicio de sesión
+    console.log(response.data); // Utiliza console.log en lugar de console() para mostrar los datos de respuesta
+    return response.data;
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error);
+    throw error; // Propaga el error para que el componente pueda manejarlo si es necesario
+  }
+};

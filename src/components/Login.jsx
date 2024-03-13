@@ -30,7 +30,7 @@ export default function Login() {
       const response = await loginUser(loginInput);
       console.log('usuario correcto', response);
       alert('Usuario OK');
-      // Redirige al usuario a la página de inicio después de iniciar sesión correctamente
+    
       router.push('/');
     } catch (error) {
       console.error('Error ', error);

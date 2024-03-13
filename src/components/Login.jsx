@@ -1,12 +1,14 @@
 "use client"
-// Login.jsx
-// Login.jsx
+// Importa useState desde React y useRouter desde Next.js
 import React, { useState } from 'react';
 import InputForm from './InputForm';
 import Btn from './Btn';
 import { loginUser } from "@/services/";
+import { useRouter } from 'next/navigation'; // Importa useRouter desde Next.js
 
 export default function Login() {
+  const router = useRouter(); // Obtiene el objeto router
+
   const [loginInput, setLogin] = useState({
     email: '',
     password: '',
@@ -28,6 +30,8 @@ export default function Login() {
       const response = await loginUser(loginInput);
       console.log('usuario correcto', response);
       alert('Usuario OK');
+      // Redirige al usuario a la página de inicio después de iniciar sesión correctamente
+      router.push('/');
     } catch (error) {
       console.error('Error ', error);
       alert('error usuario o contraseña erroneos.');

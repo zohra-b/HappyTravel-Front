@@ -18,12 +18,22 @@ export const getSearchTrips = async (searchText) => {
   return response.data;
 };
 
+export const registerUser = async (formData) => {
+  
+  try {
+   await axios.post(`${API_URL}/register`, formData);
+    
+  } catch (error) {
+    console.log("Error registering user: ", error);
+    throw error; 
+  }
+};
 
 export const loginUser = async (loginInput) => {
   try {
     const response = await axios.post(`${API_URL}/login/`, loginInput);
   } catch (error) {
     console.error("Error al iniciar sesión:", error);
-    throw error; // Propaga el error para que el componente pueda manejarlo si es necesario
+    throw error; 
   }
 };

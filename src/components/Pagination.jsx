@@ -7,6 +7,7 @@ export default function Pagination({
 }) {
   const isDisabledIfLowerThan = currentPage === 1;
   const isDisabledIfUpperThan = currentPage === totalPages;
+  console.log(typeof totalPages);
   return (
     <div className="lg:flex lg:justify-center gap-[1rem]">
       <button

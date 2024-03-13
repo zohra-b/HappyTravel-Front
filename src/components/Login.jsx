@@ -1,5 +1,6 @@
 "use client"
 // Login.jsx
+// Login.jsx
 import React, { useState } from 'react';
 import InputForm from './InputForm';
 import Btn from './Btn';
@@ -14,7 +15,10 @@ export default function Login() {
 
   const handleInput = (e) => {
     e.persist();
-    setLogin({ ...loginInput, [e.target.name]: e.target.value });
+    setLogin({ 
+      ...loginInput, 
+      [e.target.name]: e.target.value 
+    });
   };
 
   const loginSubmit = async (e) => {
@@ -22,23 +26,18 @@ export default function Login() {
 
     try {
       const response = await loginUser(loginInput);
-      if (response.user) {
-        alert('Inicio de sesión OK');
-      } else {
-        alert('Error: Credenciales incorrectas');
-      }
+      console.log('usuario correcto', response);
+      alert('Usuario OK');
     } catch (error) {
-      console.error('Error:', error);
-      alert('Error: Ha ocurrido un error durante el inicio de sesión');
+      console.error('Error ', error);
+      alert('error usuario o contraseña erroneos.');
     }
   };
-
-  
 
   return (
     <div className="flex flex-col w-[370px] min-h-[487px] gap-6 rounded-2xl border-4 items-center border-primary-yellow pb-14">
       <h2 className="text-xl text-tertiary-red font-bold pt-3">Login</h2>
-      <form className="border-t-2 border-tertiary-red flex flex-col" onSubmit={loginSubmit}>
+      <form  onSubmit={loginSubmit} className="border-t-2 border-tertiary-red flex flex-col" onSubmit={loginSubmit}>
         <label htmlFor="email" className="text-quaternary-blue text-xl font-bold pb-1 pt-6">
           E-mail
         </label>
@@ -72,7 +71,8 @@ export default function Login() {
             text="Cancelar"
             color="bg-tertiary-red"
             onClick={() => {
-           }}
+              // Acciones al hacer clic en el botón Cancelar
+            }}
           />
         </div>
       </form>

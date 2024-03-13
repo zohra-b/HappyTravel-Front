@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import InputForm from './InputForm';
 import Btn from './Btn';
 import { registerUser } from "@/services/";
+import Modal from './Modal'
+import Link from 'next/link';
+
 
 export default function FormRegister() {
   const [formData, setFormData] = useState({
@@ -17,6 +20,9 @@ export default function FormRegister() {
     password: ""
   });
 
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
@@ -26,8 +32,8 @@ export default function FormRegister() {
     e.preventDefault();
     try {
       const response = await registerUser(formData);
-      console.log('Usuario registrado exitosamente: ', response);
-      alert('Usuario registrado exitosamente');
+      setModalMessage('Registrado correctamente')
+      setShowModal(true);
     } catch (error) {
       if (error.response && error.response.data.errors) {
         const errorData = error.response.data.errors;
@@ -42,7 +48,21 @@ export default function FormRegister() {
     }
   };
 
+  const handleCancel = () => {
+    setFormData({
+      name: "",
+      email: "",
+      password: ""
+    });
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    
+  };
+
   return (
+
     <div className="flex flex-col w-[370px] min-h-[487px] gap-6 rounded-2xl border-4 items-center mt-5 border-primary-yellow pb-14">
       <h2 className="text-xl text-tertiary-red font-bold pt-3">Registro de usuario</h2>
       <form onSubmit={handleSubmit} className="border-t-2 border-tertiary-red flex flex-col">
@@ -72,10 +92,24 @@ export default function FormRegister() {
           <Btn
               text="Cancelar"
               color="bg-tertiary-red"
+              type='reset'
+              onClick={handleCancel}
           />
         </div>
         <span className="text-quaternary-blue text-center text-xl font-bold">¿Ya tienes cuenta? Accede <a href="/login" className="text-secondary-green">aquí</a></span>
       </form>
+      {showModal && (
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <Link href='/'>
+          <Modal
+            text={modalMessage}
+            onClick={handleCloseModal} 
+          />
+          </Link>
+        </div>
+      )}
     </div>
+   
+    
   );
 }

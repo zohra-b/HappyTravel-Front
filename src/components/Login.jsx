@@ -1,12 +1,11 @@
 "use client"
+// Login.jsx
 import React, { useState } from 'react';
 import InputForm from './InputForm';
 import Btn from './Btn';
 import { loginUser } from "@/services/";
 
 export default function Login() {
-
-  
   const [loginInput, setLogin] = useState({
     email: '',
     password: '',
@@ -21,29 +20,20 @@ export default function Login() {
   const loginSubmit = async (e) => {
     e.preventDefault();
 
-    const userData = {
-      email: loginInput.email,
-      password: loginInput.password
-    };
-
     try {
-      // Llamar a la función loginUser desde el servicio
-      const response = await loginUser(userData);
-
-      if (response.status === 1) {
-        // Inicio de sesión exitoso
-        const accessToken = response.access_token;
-  
-        window.location.href = '/'; // Cambia esto por la ruta de tu página principal
+      const response = await loginUser(loginInput);
+      if (response.user) {
+        alert('Inicio de sesión OK');
       } else {
-        // Manejar otros casos de respuesta, si es necesario
-        console.error('Inicio de sesión fallido:', response.msg);
+        alert('Error: Credenciales incorrectas');
       }
     } catch (error) {
-      // Manejo de errores en caso de que la solicitud falle
       console.error('Error:', error);
+      alert('Error: Ha ocurrido un error durante el inicio de sesión');
     }
   };
+
+  
 
   return (
     <div className="flex flex-col w-[370px] min-h-[487px] gap-6 rounded-2xl border-4 items-center border-primary-yellow pb-14">

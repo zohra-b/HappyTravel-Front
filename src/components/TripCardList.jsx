@@ -17,7 +17,6 @@ export default function CardList() {
   const [isLoading, setIsLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(0);
   const { breakpoint } = useBreakpoint(BREAKPOINTS);
-  console.log({ totalPages });
   // OBTENER TRIPS CON PAGINACION
   useEffect(() => {
     const fetchTrips = async () => {
@@ -82,7 +81,7 @@ export default function CardList() {
 
   return (
     <>
-      <section className="flex flex-col lg:flex-row lg:flex-wrap items-center lg:justify-center lg:gap-[1rem] lg:max-w-[80%] lg:mx-auto lg:mt-[2rem]">
+      <section className="flex flex-col lg:flex-row lg:flex-wrap items-center lg:items-start lg:justify-center lg:gap-[1rem] lg:max-w-[80%] lg:mx-auto lg:mt-[2rem]">
         {isLoading ? (
           <SkeletonCardList />
         ) : (

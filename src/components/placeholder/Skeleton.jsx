@@ -2,11 +2,11 @@ export default function Skeleton() {
   return (
     <div
       role="status"
-      class="w-[70%] mb-[1rem] lg:w-[21rem] p-4  rounded shadow animate-pulse md:p-6 bg-[#b9b9b9]"
+      className="w-[70%] mb-[1rem]  lg:w-[18rem] p-4  rounded shadow animate-pulse md:p-6 bg-[#b9b9b9]"
     >
-      <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-700">
+      <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-700">
         <svg
-          class="w-10 h-10 text-gray-200 dark:text-gray-400"
+          className="w-10 h-10 text-gray-200 dark:text-gray-400"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -16,8 +16,8 @@ export default function Skeleton() {
           <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
         </svg>
       </div>
-      <div class="h-3 bg-[#999999] rounded-full  w-[60%] mb-4"></div>
-      <div class="h-2 w-[30%] bg-gray-200 rounded-full dark:bg-gray-700 bg-[#999999]"></div>
+      <div className="h-3 bg-[#999999] rounded-full  w-[60%] mb-4"></div>
+      <div className="h-2 w-[30%] bg-gray-200 rounded-full dark:bg-gray-700 bg-[#999999]"></div>
     </div>
   );
 }

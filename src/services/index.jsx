@@ -20,10 +20,11 @@ export const getTripsByPage = async (currentPage) => {
   }
 };
 
-export const registerUser = async (userData) => {
+export const registerUser = async (formData) => {
+  
   try {
-    const response = await axios.post(`${API_URL}/register`, userData);
-    return response.data;
+   await axios.post(`${API_URL}/register`, formData);
+    
   } catch (error) {
     console.log("Error registering user: ", error);
     throw error; 

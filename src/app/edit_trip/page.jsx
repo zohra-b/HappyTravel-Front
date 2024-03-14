@@ -1,5 +1,5 @@
 
-import EditTrip from '@/components/EditTrip'
+import EditTrip from '@/components/EditTrip/EditTrip'
 import React from 'react'
 
 export default function page() {

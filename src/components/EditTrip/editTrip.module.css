@@ -1,0 +1,32 @@
+.fileButton input[type="file"] {
+    display: none;
+}
+
+.customFileUpload {
+    padding-left: 2rem;
+    padding-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    background-color: var(--primary-yellow);
+    border-radius: 1rem;
+    box-shadow: var(--inner-top-shadow);
+    color: var(--quaternary-blue);
+    width: 100%;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+/* 
+.filePlaceholder {
+    padding-left: 2rem;
+    padding-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    background-color: var(--primary-yellow);
+    border-radius: 1rem;
+    box-shadow: var(--inner-top-shadow);
+    color: var(--quaternary-blue);
+    width: 100%;
+    font-size: 0.9rem;
+    outline: none;
+} */

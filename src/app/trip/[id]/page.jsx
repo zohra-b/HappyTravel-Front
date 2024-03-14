@@ -53,19 +53,24 @@ export default function TripDetails() {
                   </p>
                 </div>
                 <div className="lg:basis-[20%] gap-[1rem] flex justify-endlg:items-center items-start">
-                  <Btn
-                    sourceIcon={"/image/Edit-icon.svg"}
-                    color={"bg-transparent"}
-                    classIcon="w-[2rem] lg:w-[1.8rem]"
-                    type="Link"
-                    href={"/"}
-                  />
-                  <Btn
-                    sourceIcon={"/image/Delete-icon.svg"}
-                    classIcon="w-[1.5rem] lg:w-[1.4rem]"
-                    color={"bg-transparent"}
-                    // onClick={}
-                  />
+                  {trip.user_id ===
+                    parseInt(localStorage.getItem("userId")) && (
+                    <>
+                      <Btn
+                        sourceIcon={"/image/Edit-icon.svg"}
+                        color={"bg-transparent"}
+                        classIcon="w-[2rem] lg:w-[1.8rem]"
+                        type="Link"
+                        href={"/"}
+                      />
+                      <Btn
+                        sourceIcon={"/image/Delete-icon.svg"}
+                        classIcon="w-[1.5rem] lg:w-[1.4rem]"
+                        color={"bg-transparent"}
+                        // onClick={}
+                      />
+                    </>
+                  )}
                 </div>
               </div>
               <p className="text-[1rem] text-quaternary-blue lg:text-[1.1rem] lg:mt-[1rem]">
@@ -73,19 +78,23 @@ export default function TripDetails() {
               </p>
 
               <div className="flex gap-[0.5rem] items-start justify-end mt-[1rem] lg:hidden">
-                <Btn
-                  sourceIcon={"/image/Edit-icon.svg"}
-                  color={"bg-transparent"}
-                  classIcon="w-[2rem] lg:w-[1.8rem]"
-                  type="Link"
-                  href={"/"}
-                />
-                <Btn
-                  sourceIcon={"/image/Delete-icon.svg"}
-                  classIcon="w-[1.5rem] lg:w-[1.4rem]"
-                  color={"bg-transparent"}
-                  // onClick={}
-                />
+                {trip.user_id === parseInt(localStorage.getItem("userId")) && (
+                  <>
+                    <Btn
+                      sourceIcon={"/image/Edit-icon.svg"}
+                      color={"bg-transparent"}
+                      classIcon="w-[2rem] lg:w-[1.8rem]"
+                      type="Link"
+                      href={"/"}
+                    />
+                    <Btn
+                      sourceIcon={"/image/Delete-icon.svg"}
+                      classIcon="w-[1.5rem] lg:w-[1.4rem]"
+                      color={"bg-transparent"}
+                      // onClick={}
+                    />
+                  </>
+                )}
               </div>
             </div>
           </div>

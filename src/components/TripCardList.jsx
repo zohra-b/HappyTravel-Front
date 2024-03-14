@@ -17,6 +17,7 @@ export default function CardList() {
   const [isLoading, setIsLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(0);
   const { breakpoint } = useBreakpoint(BREAKPOINTS);
+
   // OBTENER TRIPS CON PAGINACION
   useEffect(() => {
     const fetchTrips = async () => {

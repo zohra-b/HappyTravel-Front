@@ -82,10 +82,18 @@ export default function Login() {
         />
         <div className="flex gap-4 justify-center pt-8"></div>
         <div className="flex gap-4 my-3">
-          <Btn type="submit" text="Aceptar" color="bg-secondary-green" />
+          <Btn
+            type="submit"
+            text="Aceptar"
+            color="bg-secondary-green"
+            className="w-28 h-10"
+            padding={"px-[1.2rem] py-[0.1rem]"}
+          />
           <Btn
             text="Cancelar"
             color="bg-tertiary-red"
+            className="w-28 h-10"
+            padding={"px-[1.2rem] py-[0.1rem]"}
             type='reset'
           />
         </div>

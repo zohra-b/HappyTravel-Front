@@ -4,10 +4,14 @@ import { getTripsById } from "@/services/";
 import { useEffect, useState } from "react";
 import SkeletonDetails from "@/components/placeholder/SkeletonDetail";
 import Btn from "@/components/Btn";
+import ModalDelete from "@/components/ModalDelete";
+
 export default function TripDetails() {
   const params = useParams();
   const [trip, setTrip] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     const fecthTripId = async () => {
       try {
@@ -20,6 +24,11 @@ export default function TripDetails() {
     };
     fecthTripId();
   }, []);
+
+  const handleDeleteClick = () => {
+    setShowModal(true);
+  };
+
   return (
     <>
       {isLoading ? (
@@ -67,7 +76,7 @@ export default function TripDetails() {
                         sourceIcon={"/image/Delete-icon.svg"}
                         classIcon="w-[1.5rem] lg:w-[1.4rem]"
                         color={"bg-transparent"}
-                        // onClick={}
+                        onClick={handleDeleteClick}
                       />
                     </>
                   )}
@@ -95,9 +104,25 @@ export default function TripDetails() {
                     />
                   </>
                 )}
+                <Btn
+                  sourceIcon={"/image/Edit-icon.svg"}
+                  color={"bg-transparent"}
+                  classIcon="w-[2rem] lg:w-[1.8rem]"
+                  type="Link"
+                  href={"/"}
+                />
+                <Btn
+                  sourceIcon={"/image/Delete-icon.svg"}
+                  classIcon="w-[1.5rem] lg:w-[1.4rem]"
+                  color={"bg-transparent"}
+                  onClick={handleDeleteClick}
+                />
               </div>
             </div>
           </div>
+          {showModal && (
+            <ModalDelete tripId={params.id} onCancel={handleDeleteClick} />
+          )}
         </section>
       )}
     </>

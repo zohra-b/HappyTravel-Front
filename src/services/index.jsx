@@ -46,6 +46,41 @@ export const loginUser = async (loginInput) => {
     console.error("Error al iniciar sesión:", error);
     throw error;
   }
+
+};
+
+export const addTrip = async (formTrip) => {
+  try {
+    const token = localStorage.getItem("token"); 
+    const response = await axios.post(
+      `${API_URL}/store`,
+      formTrip,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    return response.data; 
+  } catch (error) {
+    console.log("Error al agregar viaje: ", error);
+    throw error;
+  }
+};
+
+export const deleteTrip = async (id) => {
+  try {
+    const response = await axios.delete(`${API_URL}/trip/${id}`, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    });
+    return response.data;
+  } catch (error) {
+    
+    throw error;
+  }
 };
 export const updateTrip = async ({ id, formData }) => {
   const response = await axios.post(`${API_URL}/trip/${id}`, formData, {

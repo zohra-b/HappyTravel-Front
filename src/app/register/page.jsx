@@ -1,4 +1,5 @@
 import FormRegister from '@/components/FormRegister'
+import Modal from '@/components/Modal'
 import React from 'react'
 
 export default function page() {

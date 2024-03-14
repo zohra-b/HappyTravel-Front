@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import Btn from "@/components/Btn.jsx";
@@ -10,13 +11,7 @@ export default function Card({ trip }) {
           backgroundImage: `url(http://localhost:8000/${trip.image_path})`,
         }}
       >
-        <Image
-          src={`http://localhost:8000/${trip.image_path}`}
-          alt="imagen del viaje"
-          width={150}
-          height={100}
-        />
-        {localStorage.getItem("token") && (
+        {!!localStorage.getItem("token") && (
           <Link href={`/trip/${trip.id}`}>
             <div className="mt-[0.5rem] mr-[0.5rem]">
               <Image
@@ -38,21 +33,23 @@ export default function Card({ trip }) {
             {trip.location}
           </p>
         </div>
-        <div className="basis-[30%] lg:basis-[20%] flex gap-[0.5rem] justify-between lg:items-center items-start">
-          <Btn
-            sourceIcon={"/image/Edit-icon.svg"}
-            color={"bg-transparent"}
-            classIcon="w-[2rem] lg:w-[1.8rem]"
-            type="Link"
-            href={"/"}
-          />
-          <Btn
-            sourceIcon={"/image/Delete-icon.svg"}
-            classIcon="w-[1.5rem] lg:w-[1.4rem]"
-            color={"bg-transparent"}
-            // onClick={}
-          />
-        </div>
+        {!!localStorage.getItem("token") && (
+          <div className="basis-[30%] lg:basis-[20%] flex gap-[0.5rem] justify-between lg:items-center items-start">
+            <Btn
+              sourceIcon={"/image/Edit-icon.svg"}
+              color={"bg-transparent"}
+              classIcon="w-[2rem] lg:w-[1.8rem]"
+              type="Link"
+              href={"/"}
+            />
+            <Btn
+              sourceIcon={"/image/Delete-icon.svg"}
+              classIcon="w-[1.5rem] lg:w-[1.4rem]"
+              color={"bg-transparent"}
+              // onClick={}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

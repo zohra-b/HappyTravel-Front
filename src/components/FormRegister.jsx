@@ -32,6 +32,7 @@ export default function FormRegister() {
     e.preventDefault();
     try {
       const response = await registerUser(formData);
+      localStorage.setItem("token", response.access_token);
       setModalMessage('Registrado correctamente')
       setShowModal(true);
     } catch (error) {

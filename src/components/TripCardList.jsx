@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import Pagination from "@/components/Pagination";
 import useBreakpoint from "use-breakpoint";
 import SkeletonCardList from "@/components/placeholder/SkeletonCardList";
+import { sortDataByUserId } from "@/app/utils/";
 
 const BREAKPOINTS = { mobile: 0, desktop: 1000 };
 
@@ -18,12 +19,14 @@ export default function CardList() {
   const [totalPages, setTotalPages] = useState(0);
   const { breakpoint } = useBreakpoint(BREAKPOINTS);
 
+  const userId = parseInt(localStorage.getItem("userId"));
   // OBTENER TRIPS CON PAGINACION
   useEffect(() => {
     const fetchTrips = async () => {
       try {
         const tripsData = await getTripsByPage(currentPage);
-        setTrips(tripsData.data);
+        const tripsDataOrdered = sortDataByUserId(tripsData.data, userId);
+        setTrips(tripsDataOrdered);
         setTotalPages(Math.ceil(tripsData.total / 8));
         setIsLoading(false);
       } catch (error) {
@@ -32,22 +35,28 @@ export default function CardList() {
     };
 
     if (breakpoint === "desktop") fetchTrips();
-    if (!searchText || searchText === "") {
+    if ((!searchText || searchText === "") && breakpoint !== "mobile") {
+      console.log("HERE!!!");
       fetchTrips();
     }
   }, [currentPage, searchText, breakpoint]);
   //TODOS LOS VIAJES
   useEffect(() => {
     const fetchTripsAll = async () => {
+      console.log("HERE MOBILE!!");
       try {
         const tripsData = await getAllTrips();
-        setTrips(tripsData);
+        const tripsDataOrdered = sortDataByUserId(tripsData, userId);
+        setTrips(tripsDataOrdered);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
-    if (breakpoint === "mobile") fetchTripsAll();
+    if (breakpoint === "mobile") {
+      fetchTripsAll();
+      setIsLoading(false);
+    }
   }, [breakpoint]);
   // BUSQUEDA DE TRIPS
   useEffect(() => {

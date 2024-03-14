@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { getTripsByPage, getSearchTrips, getAllTrips } from "@/services/";
 import Card from "@/components/Card.jsx";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import Pagination from "@/components/Pagination";
 import useBreakpoint from "use-breakpoint";
 import SkeletonCardList from "@/components/placeholder/SkeletonCardList";
@@ -12,9 +12,10 @@ const BREAKPOINTS = { mobile: 0, desktop: 1000 };
 
 export default function CardList() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const searchText = searchParams.get("search");
+  const currentPage = parseInt(searchParams.get("page")) || 1;
   const [trips, setTrips] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(0);
   const { breakpoint } = useBreakpoint(BREAKPOINTS);
@@ -74,7 +75,7 @@ export default function CardList() {
   }, [searchText]);
 
   const handlePagination = (newPage) => {
-    setCurrentPage(newPage);
+    router.push(`/?page=${newPage}`);
   };
 
   if (!!searchText && trips.length < 1)
@@ -95,7 +96,9 @@ export default function CardList() {
         {isLoading ? (
           <SkeletonCardList />
         ) : (
-          trips.map((trip) => <Card key={trip.id} trip={trip} />)
+          trips.map((trip) => (
+            <Card key={trip.id} trip={trip} setTotalPages={setTotalPages} />
+          ))
         )}
       </section>
 

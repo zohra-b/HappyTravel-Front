@@ -5,7 +5,8 @@ import Btn from "../Btn";
 import styles from "./editTrip.module.css";
 import Image from "next/image";
 import { getTripsById, updateTrip } from "@/services/";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+import Modal from "@/components/Modal";
 const INITIAL_VALUES = {
   title: "",
   location: "",
@@ -14,8 +15,16 @@ const INITIAL_VALUES = {
 };
 export default function EditTrip() {
   const [trip, setTrip] = useState(INITIAL_VALUES);
+  const [showModal, setShowModal] = useState(false);
   const params = useParams();
+  const router = useRouter();
 
+  const SuccessUpdateTrip = (
+    <>
+      <span className="text-[1.8rem] font-bold">✓ </span> actualizo el viaje
+      correctamente ...
+    </>
+  );
   useEffect(() => {
     const fecthTripId = async () => {
       try {
@@ -36,6 +45,15 @@ export default function EditTrip() {
     } catch (error) {
       console.error(error);
     }
+    setShowModal(true);
+  };
+  const handleCloseModal = () => {
+    setShowModal(false);
+    router.push("/");
+  };
+  const handleCancel = () => {
+    console.log("clickckckc");
+    router.push("/");
   };
   return (
     <div className="flex flex-col justify-center w-[700px] gap-6 rounded-2xl border-4 border-primary-yellow lg:mt-[2rem] mb-30 mx-auto px-[1rem] py-[1rem]">
@@ -121,6 +139,7 @@ export default function EditTrip() {
               color="bg-tertiary-red"
               type="button"
               padding={"px-[1.2rem] py-[0.1rem]"}
+              onClick={handleCancel}
             />
           </div>
         </div>
@@ -134,9 +153,9 @@ export default function EditTrip() {
           </label>
 
           <textarea
-            className="h-[20rem] resize-none w-full lg:h-full bg-primary-yellow rounded-2xl shadow-inner-top px-[1rem] placeholder:text-quaternary-blue py-[auto] text-[0.9rem] focus:outline-none overflow-auto"
+            className="text-quaternary-blue h-[20rem] resize-none w-full lg:h-full bg-primary-yellow rounded-2xl shadow-inner-top px-[1rem] placeholder:text-quaternary-blue py-[auto] text-[0.9rem] focus:outline-none overflow-auto"
             style={{ scrollbarWidth: "none" }}
-            placeholder={trip.description}
+            value={trip.description}
             onChange={(e) => setTrip({ ...trip, description: e.target.value })}
           />
         </div>
@@ -152,8 +171,17 @@ export default function EditTrip() {
             type="button"
             color="bg-tertiary-red"
             padding={"px-[1.2rem] py-[0.1rem]"}
+            onClick={handleCancel}
           />
         </div>
+        {showModal && (
+          <div
+            className="absolute top-0 right-0 bottom-0 transform w-full z-40"
+            style={{ backgroundColor: "#000000cc" }}
+          >
+            <Modal text={SuccessUpdateTrip} onClick={handleCloseModal} />
+          </div>
+        )}
       </form>
     </div>
   );

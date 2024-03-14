@@ -1,16 +1,36 @@
 "use client";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { getTripsById } from "@/services/";
 import { useEffect, useState } from "react";
 import SkeletonDetails from "@/components/placeholder/SkeletonDetail";
 import Btn from "@/components/Btn";
 import ModalDelete from "@/components/ModalDelete";
+import { deleteTrip } from "@/services/";
+import Modal from "@/components/Modal.jsx";
 
 export default function TripDetails() {
   const params = useParams();
+  const router = useRouter();
   const [trip, setTrip] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleDelete = async () => {
+    try {
+      handleCloseModal();
+      await deleteTrip(trip.id);
+      setShowConfirmationModal(true);
+      console.log({ response });
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+  const handleCloseConfirmationModal = () => {
+    setShowConfirmationModal(false);
+    router.push("/");
+  };
 
   useEffect(() => {
     const fecthTripId = async () => {
@@ -25,7 +45,10 @@ export default function TripDetails() {
     fecthTripId();
   }, []);
 
-  const handleDeleteClick = () => {
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+  const handleOpenModal = () => {
     setShowModal(true);
   };
 
@@ -70,13 +93,13 @@ export default function TripDetails() {
                         color={"bg-transparent"}
                         classIcon="w-[2rem] lg:w-[1.8rem]"
                         type="Link"
-                        href={"/"}
+                        href={`/edit_trip/${trip.id}`}
                       />
                       <Btn
                         sourceIcon={"/image/Delete-icon.svg"}
                         classIcon="w-[1.5rem] lg:w-[1.4rem]"
                         color={"bg-transparent"}
-                        onClick={handleDeleteClick}
+                        onClick={handleOpenModal}
                       />
                     </>
                   )}
@@ -94,13 +117,13 @@ export default function TripDetails() {
                       color={"bg-transparent"}
                       classIcon="w-[2rem] lg:w-[1.8rem]"
                       type="Link"
-                      href={"/"}
+                      href={`/edit_trip/${trip.id}`}
                     />
                     <Btn
                       sourceIcon={"/image/Delete-icon.svg"}
                       classIcon="w-[1.5rem] lg:w-[1.4rem]"
                       color={"bg-transparent"}
-                      // onClick={}
+                      onClick={handleOpenModal}
                     />
                   </>
                 )}
@@ -115,13 +138,33 @@ export default function TripDetails() {
                   sourceIcon={"/image/Delete-icon.svg"}
                   classIcon="w-[1.5rem] lg:w-[1.4rem]"
                   color={"bg-transparent"}
-                  onClick={handleDeleteClick}
+                  onClick={handleOpenModal}
                 />
               </div>
             </div>
           </div>
           {showModal && (
-            <ModalDelete tripId={params.id} onCancel={handleDeleteClick} />
+            <div
+              className="absolute top-0 right-0 bottom-0 transform w-full z-40"
+              style={{ backgroundColor: "#000000cc" }}
+            >
+              <ModalDelete
+                handleCloseModal={handleCloseModal}
+                handleDelete={handleDelete}
+              ></ModalDelete>
+            </div>
+          )}
+
+          {showConfirmationModal && (
+            <div
+              className="absolute top-0 right-0 bottom-0 transform w-full z-40"
+              style={{ backgroundColor: "#000000cc" }}
+            >
+              <Modal
+                text="¡La eliminación se realizó correctamente."
+                onClick={handleCloseConfirmationModal}
+              />
+            </div>
           )}
         </section>
       )}

@@ -98,7 +98,10 @@ export default function Login() {
         </div>
       </form>
       {showModal && (
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div
+          className="absolute top-0 right-0 bottom-0 transform w-full z-40"
+          style={{ backgroundColor: "#000000cc" }}
+        >
           <Modal text={modalMessage} onClick={handleCloseModal} />
         </div>
       )}

@@ -4,7 +4,18 @@ import Btn from "@/components/Btn.jsx";
 export default function Card({ trip }) {
   return (
     <div className="bg-primary-yellow w-[70%] rounded-lg mb-[1rem] lg:basis-[18rem] min-[1600px]:basis-[21rem]">
-      <div className="w-full h-[15rem] bg-[url('/image/IslaEjemplo.jpg')] bg-no-repeat bg-center bg-cover rounded-lg flex justify-end">
+      <div
+        className="w-full h-[15rem]  bg-no-repeat bg-center bg-cover rounded-lg flex justify-end"
+        style={{
+          backgroundImage: `url(http://localhost:8000/${trip.image_path})`,
+        }}
+      >
+        <Image
+          src={`http://localhost:8000/${trip.image_path}`}
+          alt="imagen del viaje"
+          width={150}
+          height={100}
+        />
         {localStorage.getItem("token") && (
           <Link href={`/trip/${trip.id}`}>
             <div className="mt-[0.5rem] mr-[0.5rem]">

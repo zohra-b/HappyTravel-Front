@@ -37,6 +37,7 @@ export default function FormRegister() {
       localStorage.setItem("token", response.access_token);
       setModalMessage("Registrado correctamente");
       setShowModal(true);
+      localStorage.setItem("userId", response.user_id);
     } catch (error) {
       if (error.response && error.response.data.errors) {
         const errorData = error.response.data.errors;
@@ -51,6 +52,7 @@ export default function FormRegister() {
     }
   };
 
+  
   const handleCancel = () => {
     setFormData({
       name: "",

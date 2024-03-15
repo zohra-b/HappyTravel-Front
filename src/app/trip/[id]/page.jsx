@@ -57,10 +57,10 @@ export default function TripDetails() {
       {isLoading ? (
         <SkeletonDetails />
       ) : (
-        <section className="absolute top-0 lg:static lg:max-w-[65%] lg:mx-auto lg:mt-[6rem]">
+        <section className="w-full absolute top-0 lg:static lg:max-w-[65%] lg:mx-auto lg:mt-[6rem]">
           <div className="lg:flex lg:gap-[2.5rem]">
             <div
-              className="relative w-full h-[50vh] bg-no-repeat bg-center bg-[length:200%] rounded-b-3xl flex justify-center items-end lg:static lg:bg-cover lg:basis-[85%] lg:h-[28rem] lg:rounded-3xl"
+              className="relative w-full h-[50vh] bg-no-repeat bg-center  rounded-b-3xl flex justify-center items-end lg:static lg:bg-cover lg:basis-[85%] lg:h-[28rem] lg:rounded-3xl"
               style={{
                 backgroundImage: `url(http://localhost:8000/${trip.image_path})`,
               }}

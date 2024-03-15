@@ -32,7 +32,7 @@ describe('FormRegister', () => {
   });
 
   it('calls registerUser when "Aceptar" button is clicked', async () => {
-    const mockToken = 'some_token_value'; // Simulamos un token de respuesta
+    const mockToken = 'some_token_value'; 
     registerUser.mockResolvedValueOnce({ access_token: mockToken });
 
     const { getByText, getByPlaceholderText } = render(<FormRegister />);
@@ -46,7 +46,7 @@ describe('FormRegister', () => {
 
     fireEvent.click(getByText('Aceptar'));
 
-    // Esperamos a que se complete la solicitud y se obtenga el token
+  
     await waitFor(() => {
       expect(registerUser).toHaveBeenCalledWith({
         name: 'Test User',
@@ -55,7 +55,7 @@ describe('FormRegister', () => {
       });
     });
 
-    // Verificamos que se haya guardado el token en el localStorage
+    
     expect(localStorage.setItem).toHaveBeenCalledWith('token', mockToken);
   });
 

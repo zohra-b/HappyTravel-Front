@@ -10,7 +10,7 @@ describe("InputForm", () => {
 
     const onChange = jest.fn();
 
-    const { getByPlaceholderText, getByTestId } = render(
+    const { getByPlaceholderText} = render(
       <InputForm
         type="text"
         placeholder={textoPlaceholder}

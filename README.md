@@ -19,10 +19,10 @@ La compañía HappyTravel nos ha contratado para desarrollar una plataforma web 
 <img src="./public/atomic_design.jpg" width="900px">
 
 
-## Home - desktop
+#### Home - desktop
    <img src="./public/home_figma.jpg" width=900px>
 
-## Destino - desktop
+#### Destino - desktop
    <img src="./public/show_logged.jpg" width=900px>
 
 

@@ -68,7 +68,7 @@ export default function NavBar() {
         </>
       )}
       {!isAuthenticated && (
-        <Link href={"/login"}>
+        <Link href={"/register"}>
           <Image
             src="/image/Avatar-icon.svg"
             alt="Icono avatar"

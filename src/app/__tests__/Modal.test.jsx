@@ -1,4 +1,3 @@
-// Modal.test.jsx
 import "@testing-library/jest-dom";
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';

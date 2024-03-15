@@ -66,7 +66,7 @@ Inicia la aplicación con `npm run dev`y clica en el enlace que aparece en la te
 
 Y disfruta de la experiencia de ver y guardar destinos.
 
-Si quieres acceder al reposorio del backend del proyecto, sigue este enlace: https://github.com/AliciaoE/HappyTravel-Back
+Si quieres acceder al reposorio del backend del proyecto, sigue este enlace: https://github.com/zohra-b/HappyTravel-Back
 
 ## Equipo Hacker Cats
 

@@ -1,4 +1,4 @@
-# Transformando Sueños en Realidad: Happy Travel 
+#  Happy Travel by Hacker Cats
 
 
 ## 📓 Tabla de contenidos 
@@ -6,65 +6,95 @@
    2. [Mockups](#mockups)
    3. [Tecnologías](#tecnologías)
    4. [Herramientas](#herramientas)
+   5. [Instalación](#instalación)
+   6. [Nuestro equipo](#equipo-hacker-cats)
 
 
 ## 🗃 Información General
-¿Quién no disfruta de la emoción de viajar y descubrir nuevos lugares? La compañía HappyTravel nos ha contratado para desarrollar una plataforma web que permita a los usuarios compartir sus destinos de ensueño y las razones que los motivan. El objetivo es que tanto los visitantes no registrados como los usuarios autenticados puedan explorar y compartir sus sueños de viaje. Los usuarios autenticados tendrán la capacidad adicional de crear, editar y eliminar sus propias entradas de destinos.
+La compañía HappyTravel nos ha contratado para desarrollar una plataforma web que permita conocer y compartir destinos de ensueño y las razones por las que resultan tan atractivos. El objetivo de la página es que las personas no registrados que la visitan puedan explorar los destinos, y que las personas autenticadas, además de explorar destinos, puedan también crear, editar y eliminar sus propias entradas de destinos.
 
 ## Mockups
 
 #### Atomic Design
-<img src="./laravel/public/assets/atomic-desing.png" width="400px">
+<img src="./public/atomic_design.jpg" width="900px">
 
-#### Versión Desktop
-<img src="./laravel/public/assets/desktop.png" width=900px>
+
+#### Home - desktop
+   <img src="./public/home_figma.jpg" width=900px>
+
+#### Destino - desktop
+   <img src="./public/show_logged.jpg" width=900px>
+
 
 ## 🛠 Tecnologías
 <div>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/>
-<img src="https://profilinator.rishav.dev/skills-assets/css3-original-wordmark.svg" alt="CSS3" height="50" />  
-<img src="https://raw.githubusercontent.com/jmnote/z-icons/master/svg/php.svg" alt="php" width="40" height="40"/>
-<img src="https://profilinator.rishav.dev/skills-assets/mysql-original-wordmark.svg" alt="react" width="40" height="40"/>
-<img src="https://profilinator.rishav.dev/skills-assets/laravel-plain-wordmark.svg" alt="Laravel" width="40" height="40"/>
-</div>
-
-<div>
-
-Versiones : 
-Next: "14.1.0",
-React: "^18",
-PHP 8.2.12,
-
+<img alt="Static Badge" src="https://img.shields.io/badge/HTML-5-blue">
+<br>
+<img alt="Static Badge" src="https://img.shields.io/badge/CSS-3-blue">
+<br>
+<img alt="Static Badge" src="https://img.shields.io/badge/Tailwind-v3.0-blue">
+<br>
+<img alt="Static Badge" src="https://img.shields.io/badge/Next-14.1.0-blue">
+<br>
+<img alt="Static Badge" src="https://img.shields.io/badge/React-%5E18-blue">
+<br>
+<img alt="Static Badge" src="https://img.shields.io/badge/Axios-%5E1.6.7-blue">
 
 </div>
+
+
 
 ## 🛠 Herramientas
 <div>
-<img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/>
-<img src="https://w7.pngwing.com/pngs/512/824/png-transparent-visual-studio-code-hd-logo-thumbnail.png" alt="vscode" width="40" heigth="40"/>
-<img src="https://w7.pngwing.com/pngs/115/721/png-transparent-trello-social-icons-icon.png" alt="trello" width="40" heigth="40"/>
-<img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
-<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="github" width="40" heigth="40"/>
-<img src="https://profilinator.rishav.dev/skills-assets/xampp.png" alt="react" width="40" height="40"/> </div>
+<img alt="Static Badge" src="https://img.shields.io/badge/Figma-green"> 
+<br>
+<img alt="Static Badge" src="https://img.shields.io/badge/Visual_Studio_Code-green">
+<br>
+<img alt="Static Badge" src="https://img.shields.io/badge/Trello-green">
+<br>
+<img alt="Static Badge" src="https://img.shields.io/badge/GitHub-green">
+<br>
+
 
 ## Instalación
 
-Breve descripción de como poder ver nuestro proyecto, para ejecutarlo necesitas tener conocimientos previos sobre como funciona Mamp/Xamp y tener instalado composer
-1. Clona este repositorio en tu máquina local:
+Aquí tienes una breve descripción de cómo poder ver nuestro proyecto.
 
-2. Coloca la carpeta del proyecto en la carpeta de proyectos de tu MAMP o XAMPP según sea el caso.
-3. Crea la base de datos y la tabla:
-- Abre tu gestor de bases de datos (por ejemplo, phpMyAdmin).
-- Crea una nueva base de datos con el nombre  "happy_travel" aquí las tablas las realizaremos desde tú editor de código.
-4. Abre en tú editor de texto el proyecto y luego dentro de la carpeta laravel en la terminal debes poner
-`composer install`
-y luego, el cuál hará que se carguen las tablas del proyecto
-`php artisan migrate`
-Esta es una aplicación para guardar y compartir destinos, entoncés para que tener algunos datos en la base de datos, hemos creado los seeders los cuales te permitirán tener 10 destininos estos no podrás borrarlos, ni editarlos a diferencia de los que cargues tú, para poder tener estos destinos debes en la terminal poner 
-`php artisan db:seed --class=DestinationsTableSeeder`
-
-y finalmente para ver el proyecto en tú navegador ejecuta el comando 
-
-`php artisan server`
+1. Clona este repositorio a tu máquina local con el siguente comando: "git clone https://github.com/AliciaoE/HappyTravel-Front.git ".
+2. Instala las dependencias usando `npm install`.
+Inicia la aplicación con `npm run dev`y clica en el enlace que aparece en la terminal para que se te abra en el navegador.
 
 Y disfruta de la experiencia de ver y guardar destinos.
+
+Si quieres acceder al reposorio del backend del proyecto, sigue este enlace: https://github.com/AliciaoE/HappyTravel-Back
+
+## Equipo Hacker Cats
+
+Somos un grupo de desarrolladoras unidas por la ilusión de aprender más sobre código. Encuéntranos en:
+
+Alicia: 
+- https://github.com/AliciaoE
+- https://www.linkedin.com/in/alicia-ontiveros-escudero/
+
+Carolina:
+- https://github.com/conuvedevegana
+- https://www.linkedin.com/in/carolina-delfa-silvestre/
+
+Gabriela I:
+- https://github.com/GabriiCoder
+- https://www.linkedin.com/in/gabriela-irimia/
+
+Gabriela P:
+- https://github.com/annaLucian
+- https://www.linkedin.com/in/gabriela-poves-navarro/
+
+Laura:
+- https://github.com/ImLauraGS
+- https://www.linkedin.com/in/laura-gil-solano/
+
+Zohra:
+- https://github.com/zohra-b
+- https://www.linkedin.com/in/z-bellamine/
+
+
+

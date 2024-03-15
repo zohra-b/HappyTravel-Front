@@ -14,7 +14,7 @@ export default function Search() {
   };
   return (
     <form
-      className="relative flex items-center w-[50%] mb-[1.5rem]  lg:w-[15%] lg:mb-0"
+      className="relative flex items-center w-[50%] mb-[1.5rem]  lg:w-[18%] lg:mb-0"
       onSubmit={handleSubmit}
     >
       <input

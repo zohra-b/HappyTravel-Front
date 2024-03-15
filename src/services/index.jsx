@@ -20,12 +20,11 @@ export const getSearchTrips = async (searchText) => {
 };
 
 export const registerUser = async (formData) => {
-  try {
-    await axios.post(`${API_URL}/register`, formData);
-  } catch (error) {
-    console.log("Error registering user: ", error);
-    throw error;
-  }
+  
+    const response = await axios.post(`${API_URL}/register`, formData);
+    
+    return response.data;
+
 };
 
 export const getTripsById = async (id) => {

@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function FormRegister() {
   const router = useRouter();
-  if (localStorage.getItem("token")) router.push("/");
+  // if (localStorage.getItem("token")) router.push("/");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -146,10 +146,11 @@ export default function FormRegister() {
         </span>
       </form>
       {showModal && (
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <Link href="/">
-            <Modal text={modalMessage} onClick={handleCloseModal} />
-          </Link>
+        <div
+          className="absolute top-0 right-0 bottom-0 transform w-full z-40"
+          style={{ backgroundColor: "#000000cc" }}
+        >
+          <Link href="/"><Modal text={modalMessage} onClick={handleCloseModal} /></Link>
         </div>
       )}
     </div>

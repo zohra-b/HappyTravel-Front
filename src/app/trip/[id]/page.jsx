@@ -84,7 +84,7 @@ export default function TripDetails() {
                     {trip.location}
                   </p>
                 </div>
-                <div className="lg:basis-[20%] gap-[1rem] flex justify-endlg:items-center items-start">
+                <div className="hidden lg:basis-[20%] gap-[1rem] lg:flex justify-endlg:items-center items-start">
                   {trip.user_id ===
                     parseInt(localStorage.getItem("userId")) && (
                     <>
@@ -127,19 +127,6 @@ export default function TripDetails() {
                     />
                   </>
                 )}
-                <Btn
-                  sourceIcon={"/image/Edit-icon.svg"}
-                  color={"bg-transparent"}
-                  classIcon="w-[2rem] lg:w-[1.8rem]"
-                  type="Link"
-                  href={"/"}
-                />
-                <Btn
-                  sourceIcon={"/image/Delete-icon.svg"}
-                  classIcon="w-[1.5rem] lg:w-[1.4rem]"
-                  color={"bg-transparent"}
-                  onClick={handleOpenModal}
-                />
               </div>
             </div>
           </div>

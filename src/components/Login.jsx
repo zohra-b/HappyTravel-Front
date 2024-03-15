@@ -9,6 +9,8 @@ import Modal from "./Modal";
 export default function Login() {
   const router = useRouter();
 
+  if (localStorage.getItem("token")) router.push("/");
+
   const [loginInput, setLoginInput] = useState({
     email: "",
     password: "",

@@ -5,10 +5,13 @@ import Modal from "./Modal";
 import InputForm from "./InputForm";
 import Btn from "./Btn";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "@/components/EditTrip/editTrip.module.css";
 import { addTrip } from "@/services/";
 
 export default function AddForm() {
+  const router = useRouter();
+  if (!localStorage.getItem("token")) router.push("/login");
   const [formTrip, setFormTrip] = useState({
     title: "",
     location: "",

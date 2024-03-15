@@ -16,7 +16,7 @@ export default function TripDetails() {
   const [showModal, setShowModal] = useState(false);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [error, setError] = useState(null);
-
+  if (!localStorage.getItem("token")) router.push("/login");
   const handleDelete = async () => {
     try {
       handleCloseModal();

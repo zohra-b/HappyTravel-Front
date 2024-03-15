@@ -3,10 +3,13 @@ import React, { useState } from "react";
 import InputForm from "./InputForm";
 import Btn from "./Btn";
 import { registerUser } from "@/services/";
+import { useRouter } from "next/navigation";
 import Modal from "./Modal";
 import Link from "next/link";
 
 export default function FormRegister() {
+  const router = useRouter();
+  if (localStorage.getItem("token")) router.push("/");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -117,7 +120,7 @@ export default function FormRegister() {
         {errors.password && (
           <p className="text-tertiary-red font-semibold">{errors.password}</p>
         )}
-        
+
         <div className="flex justify-center gap-4 my-3">
           <Btn
             text="Aceptar"

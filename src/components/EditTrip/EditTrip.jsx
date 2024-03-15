@@ -18,7 +18,7 @@ export default function EditTrip() {
   const [showModal, setShowModal] = useState(false);
   const params = useParams();
   const router = useRouter();
-
+  if (!localStorage.getItem("token")) router.push("/login");
   const SuccessUpdateTrip = (
     <>
       <span className="text-[1.8rem] font-bold">✓ </span> actualizo el viaje

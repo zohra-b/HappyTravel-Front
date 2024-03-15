@@ -59,24 +59,10 @@ La compañía HappyTravel nos ha contratado para desarrollar una plataforma web 
 ## Instalación
 
 Aquí tienes una breve descripción de cómo poder ver nuestro proyecto.
-Para ejecutarlo necesitas tener conocimientos previos sobre como funciona Mamp/Xamp y tener instalado composer.
 
-Sigue estos pasos para acceder al proyecto:
-1. Clona este repositorio en tu máquina local: https://github.com/AliciaoE/HappyTravel-Front.git
-2. Coloca la carpeta del proyecto en la carpeta de proyectos de tu MAMP o XAMPP según sea el caso.
-3. Crea la base de datos y la tabla:
-- Abre tu gestor de bases de datos (por ejemplo, phpMyAdmin).
-- Crea una nueva base de datos con el nombre  "happy_travel". Las tablas las realizaremos desde tu editor de código.
-4. Abre en tu editor de texto el proyecto, abre su terminal y dentro de la carpeta laravel debes poner
-`composer install`
-después, para cargar las tablas del proyecto, escribe el comando
-`php artisan migrate`
-Ya que se trata de una aplicación para guardar y compartir destinos, hemos creado los seeders para tener de antemano algunos datos en la base de datos. Estos seeders te permitirán tener 10 destinos ya publicados. No podrás borrarlos, ni editarlos a diferencia de los que cargues tú. Para poder tener estos 10 destinos creados a través de seeders, escribe en la terminal
-`php artisan db:seed --class=DestinationsTableSeeder`
-
-y finalmente para ver el proyecto en tu navegador ejecuta el comando 
-
-`php artisan server`
+1. Clona este repositorio a tu máquina local con el siguente comando: "git clone https://github.com/AliciaoE/HappyTravel-Front.git ".
+2. Instala las dependencias usando `npm install`.
+Inicia la aplicación con `npm run dev`y clica en el enlace que aparece en la terminal para que se te abra en el navegador.
 
 Y disfruta de la experiencia de ver y guardar destinos.
 
@@ -94,11 +80,11 @@ Carolina:
 - https://github.com/conuvedevegana
 - https://www.linkedin.com/in/carolina-delfa-silvestre/
 
-Gabriela:
+Gabriela I:
 - https://github.com/GabriiCoder
 - https://www.linkedin.com/in/gabriela-irimia/
 
-Gabriela:
+Gabriela P:
 - https://github.com/annaLucian
 - https://www.linkedin.com/in/gabriela-poves-navarro/
 

@@ -82,3 +82,12 @@ export const deleteTrip = async (id) => {
     throw error;
   }
 };
+export const updateTrip = async ({ id, formData }) => {
+  const response = await axios.post(`${API_URL}/trip/${id}`, formData, {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return response.data;
+};

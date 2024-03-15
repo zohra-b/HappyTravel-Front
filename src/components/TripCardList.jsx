@@ -2,27 +2,32 @@
 import { useEffect, useState } from "react";
 import { getTripsByPage, getSearchTrips, getAllTrips } from "@/services/";
 import Card from "@/components/Card.jsx";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import Pagination from "@/components/Pagination";
 import useBreakpoint from "use-breakpoint";
 import SkeletonCardList from "@/components/placeholder/SkeletonCardList";
+import { sortDataByUserId } from "@/app/utils/";
 
 const BREAKPOINTS = { mobile: 0, desktop: 1000 };
 
 export default function CardList() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const searchText = searchParams.get("search");
+  const currentPage = parseInt(searchParams.get("page")) || 1;
   const [trips, setTrips] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(0);
   const { breakpoint } = useBreakpoint(BREAKPOINTS);
+
+  const userId = parseInt(localStorage.getItem("userId"));
   // OBTENER TRIPS CON PAGINACION
   useEffect(() => {
     const fetchTrips = async () => {
       try {
         const tripsData = await getTripsByPage(currentPage);
-        setTrips(tripsData.data);
+        const tripsDataOrdered = sortDataByUserId(tripsData.data, userId);
+        setTrips(tripsDataOrdered);
         setTotalPages(Math.ceil(tripsData.total / 8));
         setIsLoading(false);
       } catch (error) {
@@ -31,22 +36,28 @@ export default function CardList() {
     };
 
     if (breakpoint === "desktop") fetchTrips();
-    if (!searchText || searchText === "") {
+    if ((!searchText || searchText === "") && breakpoint !== "mobile") {
+      console.log("HERE!!!");
       fetchTrips();
     }
   }, [currentPage, searchText, breakpoint]);
   //TODOS LOS VIAJES
   useEffect(() => {
     const fetchTripsAll = async () => {
+      console.log("HERE MOBILE!!");
       try {
         const tripsData = await getAllTrips();
-        setTrips(tripsData);
+        const tripsDataOrdered = sortDataByUserId(tripsData, userId);
+        setTrips(tripsDataOrdered);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
-    if (breakpoint === "mobile") fetchTripsAll();
+    if (breakpoint === "mobile") {
+      fetchTripsAll();
+      setIsLoading(false);
+    }
   }, [breakpoint]);
   // BUSQUEDA DE TRIPS
   useEffect(() => {
@@ -64,7 +75,7 @@ export default function CardList() {
   }, [searchText]);
 
   const handlePagination = (newPage) => {
-    setCurrentPage(newPage);
+    router.push(`/?page=${newPage}`);
   };
 
   if (!!searchText && trips.length < 1)
@@ -85,7 +96,9 @@ export default function CardList() {
         {isLoading ? (
           <SkeletonCardList />
         ) : (
-          trips.map((trip) => <Card key={trip.id} trip={trip} />)
+          trips.map((trip) => (
+            <Card key={trip.id} trip={trip} setTotalPages={setTotalPages} />
+          ))
         )}
       </section>
 

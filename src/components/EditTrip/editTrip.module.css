@@ -1,0 +1,11 @@
+.fileButton input[type="file"] {
+    display: none;
+}
+
+.customFileUpload {
+    border-radius: 1rem;
+    box-shadow: inset 1px 3px 4px 1px rgb(37 29 29 / 18%);
+    width: 100%;
+    font-size: 0.9rem;
+    outline: none;
+}

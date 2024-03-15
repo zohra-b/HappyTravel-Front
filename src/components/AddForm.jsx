@@ -50,15 +50,15 @@ export default function AddForm() {
   };
 
   return (
-    <section className="flex flex-col justify-center w-[750px] min-h-[487px] gap-6 rounded-2xl border-4 border-primary-yellow mt-[4rem] mb-30 mx-auto px-14">
+    <section className="mx-auto w-[90%] flex flex-col justify-center lg:w-[650px] lg:min-h-[487px] gap-6 rounded-2xl border-4 border-primary-yellow mt-[2rem] lg:mt-[4rem] mb-30 px-[1rem] lg:px-[2rem]">
       <h2 className="text-xl text-tertiary-red font-bold pt-3 inline-block text-center">
         Crear destino
       </h2>
       <form
         onSubmit={handleSubmit}
-        className="border-t-2 border-tertiary-red flex justify-between mx-8"
+        className="lg:mx-0 lg:w-full border-t-2 border-tertiary-red flex-col flex justify-between lg:flex-row lg:justify-center lg:gap-[2rem]"
       >
-        <div className="flex flex-col ">
+        <div className="flex flex-col lg:basis-[50%]">
           <label
             htmlFor="title"
             className="text-quaternary-blue text-xl font-bold pb-1 pt-6"
@@ -122,7 +122,7 @@ export default function AddForm() {
               className={` pl-8  rounded-2xl shadow-inner-top px-[1rem] placeholder:text-quaternary-blue py-[0.3rem] w-full text-[0.9rem] focus:outline-none ${styles.customFileUpload}`}
             />
           </div>
-          <div className="flex justify-center gap-4 my-3">
+          <div className="lg:flex justify-center gap-4 my-3 hidden">
             <Btn
               text="Aceptar"
               color="bg-secondary-green"
@@ -141,7 +141,7 @@ export default function AddForm() {
           </div>
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col lg:basis-[50%]">
           <label
             htmlFor="description"
             className="text-quaternary-blue text-xl font-bold pb-1 pt-6"
@@ -153,9 +153,26 @@ export default function AddForm() {
             name="description"
             value={formTrip.description}
             onChange={handleChange}
-            className="resize-none w-full h-full bg-primary-yellow rounded-2xl shadow-inner-top px-[1rem] placeholder:text-quaternary-blue py-[auto] text-[0.9rem] focus:outline-none overflow-auto"
-            style={{ scrollbarWidth: "none", "-ms-overflow-style": "none" }}
+            className="h-[10rem] lg:h-full resize-none w-full  bg-primary-yellow rounded-2xl shadow-inner-top px-[1rem] placeholder:text-quaternary-blue py-[auto] text-[0.9rem] focus:outline-none overflow-auto"
+            style={{ scrollbarWidth: "none" }}
             placeholder="Aquí estará la explicación del porque quieres viajar allí y no debe pasarse de más de 500 caracteres."
+          />
+        </div>
+        <div className="flex justify-center gap-4 my-[2rem] lg:hidden mb-[5rem]">
+          <Btn
+            text="Aceptar"
+            color="bg-secondary-green"
+            onSubmit={handleSubmit}
+            className="w-28 h-10 "
+            padding={"px-[1.2rem] py-[0.1rem]"}
+          />
+          <Btn
+            type="button"
+            text="Cancelar"
+            color="bg-tertiary-red"
+            onClick={handleCancel}
+            className="w-28 h-10"
+            padding={"px-[1.2rem] py-[0.1rem]"}
           />
         </div>
       </form>
